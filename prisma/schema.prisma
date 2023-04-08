@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  //id Int @id @default(autoincrement())
+  id String @id //use Google account's ID
+  name String? 
+  email String?
+  accessToken String? 
+  refreshToken String? 
+  calendars Calendar[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Calendar {
+  id Int @id @default(autoincrement())
+  calendarId String 
+  isHideDetail Boolean?
+  user User @relation(fields: [userId], references: [id])
+  userId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

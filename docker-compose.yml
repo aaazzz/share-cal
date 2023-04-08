@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:12
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/posgres:/var/lib/postgresql/data
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+    environment:
+      - POSTGRES_USER=share-cal
+      - POSTGRES_PASSWORD=share-cal

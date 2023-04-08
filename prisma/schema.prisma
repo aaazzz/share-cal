@@ -12,7 +12,7 @@ datasource db {
 
 model User {
   //id Int @id @default(autoincrement())
-  id String @id //use Google account's ID
+  id String @unique
   name String? 
   email String?
   accessToken String? 

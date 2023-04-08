@@ -1,0 +1,200 @@
+{
+  "calendar": {
+    "context": {
+      "_options": {
+        "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+      },
+      "google": {
+        "_discovery": {
+          "transporter": {},
+          "options": {
+            "debug": false,
+            "includePrivate": false
+          }
+        },
+        "auth": {
+          "jsonContent": null,
+          "cachedCredential": null,
+          "_cachedProjectId": null
+        },
+        "_options": {}
+      }
+    },
+    "acl": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "calendarList": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "calendars": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "channels": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "colors": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "events": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "freebusy": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    },
+    "settings": {
+      "context": {
+        "_options": {
+          "auth": "ya29.a0Ael9sCNqLfDGbyYHYZQ2QBRPbVDP55-EyI-CaVB9mHerPwZz8FS76AT4KZY1bfw4hbKo72LlqfTuNGGKokjeHnj1oMwSS5lniPSjN3zt45_deNN2JAIy0uX9LHlfBKNqo1XpccLI77Mnt5MrFIey6Ysu93vnaCgYKARwSARISFQF4udJhiUBN0RZRcL8BpiI4iCjXwg0163"
+        },
+        "google": {
+          "_discovery": {
+            "transporter": {},
+            "options": {
+              "debug": false,
+              "includePrivate": false
+            }
+          },
+          "auth": {
+            "jsonContent": null,
+            "cachedCredential": null,
+            "_cachedProjectId": null
+          },
+          "_options": {}
+        }
+      }
+    }
+  }
+}

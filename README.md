@@ -1,4 +1,9 @@
 # Run
+db
+```shell
+$ docker compose up
+```
+app
 ```shell
 $ npm run watch
 $ npm run test -- --watch

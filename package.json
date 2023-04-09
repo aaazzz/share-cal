@@ -8,7 +8,7 @@
     "seed": "prisma db seed",
     "test": "jest",
     "build": "tsc --project ./tsconfig.json",
-    "start": "cp -r ./src/views ./dist/views && node ./dist/index.js",
+    "start": "cp -r ./src/views ./dist && node ./dist/index.js",
     "watch": "tsc-watch --onSuccess \"npm run start\""
   },
   "prisma": {
@@ -37,6 +37,7 @@
   "dependencies": {
     "@prisma/client": "^4.8.0",
     "@types/express-session": "^1.17.7",
+    "@types/morgan": "^1.9.4",
     "@types/passport": "^1.0.12",
     "@types/passport-google-oauth2": "^0.1.5",
     "@types/passport-google-oauth20": "^2.0.11",
@@ -47,6 +48,7 @@
     "google-auth-library": "^8.7.0",
     "googleapis": "^110.0.0",
     "http": "^0.0.1-security",
+    "morgan": "^1.10.0",
     "morgan-body": "^2.6.8",
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",

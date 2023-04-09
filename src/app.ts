@@ -3,7 +3,8 @@ import path from 'path';
 import passport from 'passport';
 import { OAuth2Strategy } from 'passport-google-oauth';
 import session from 'express-session';
-import morganBody from 'morgan-body';
+// import morganBody from 'morgan-body';
+import morgan from 'morgan';
 import dotenv from 'dotenv';
 import { PrismaClient } from '@prisma/client';
 dotenv.config();
@@ -12,7 +13,7 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || '';
 
 // import './global';
 import { LoggedInUser } from './model/loggedInUse';
-import { google } from 'googleapis';
+import { GoogleCalendar } from './service/googleCalendar';
 
 const state = {
   userProfile: {},
@@ -43,7 +44,8 @@ const createApp = (db: PrismaClient) => {
   const app = express();
 
   app.use(express.json());
-  morganBody(app);
+  app.use(morgan('combined'));
+  //  morganBody(app);
 
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'ejs');
@@ -51,6 +53,10 @@ const createApp = (db: PrismaClient) => {
     res.render('pages/success', { user: state.userProfile })
   );
   app.get('/error', (req, res) => res.send('error logging in'));
+
+  app.get('/calendars', (req, res) =>
+    res.render('pages/calendars', { calendars: state.calendars })
+  );
 
   app.use(
     session({
@@ -85,7 +91,12 @@ const createApp = (db: PrismaClient) => {
         done: any
       ) {
         const loggedInUser: LoggedInUser = profile._json;
-        console.log({ refreshToken });
+
+        // get calendars
+        const googleCalendar = new GoogleCalendar(refreshToken);
+        state.calendars = await googleCalendar.listCalendars();
+
+        // update User Table
         await db.user.upsert({
           where: { id: loggedInUser.sub },
           update: {
@@ -144,20 +155,6 @@ const createApp = (db: PrismaClient) => {
     res.json({ user: req.user });
   });
 
-  app.get('/users', isAuthenticated, async (req, res) => {
-    const allUsers = await db.user.findMany();
-    res.status(200).json(allUsers);
-  });
-
-  app.get('/calendars', isAuthenticated, async (req, res) => {
-    const user = await db.user.findUnique({
-      where: { id: req.user?.id },
-    });
-    const accessToken = user?.accessToken || '';
-    const gCal = google.calendar({ version: 'v3', auth: accessToken });
-    console.log(gCal.calendarList.list());
-    res.status(200).json({});
-  });
   return app;
 };
 

@@ -8,7 +8,6 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || '';
 
 class GoogleCalendar {
-
   private readonly authClient: any;
   private readonly calendarApi: any;
 
@@ -17,7 +16,10 @@ class GoogleCalendar {
   // service accountを利用する。タイムアウトしない
   constructor(refreshToken?: string) {
     if (refreshToken !== undefined) {
-      this.authClient = new OAuth2Client(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET);
+      this.authClient = new OAuth2Client(
+        GOOGLE_CLIENT_ID,
+        GOOGLE_CLIENT_SECRET
+      );
       this.authClient.setCredentials({ refresh_token: refreshToken });
     } else {
       this.authClient = new google.auth.JWT(
@@ -28,7 +30,10 @@ class GoogleCalendar {
         ''
       );
     }
-    this.calendarApi = google.calendar({ version: 'v3', auth: this.authClient });
+    this.calendarApi = google.calendar({
+      version: 'v3',
+      auth: this.authClient,
+    });
   }
 
   async listCalendars() {

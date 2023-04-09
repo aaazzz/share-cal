@@ -1,12 +1,9 @@
-
 {
   "accessRole": "owner",
   "backgroundColor": "#a47ae2",
   "colorId": "24",
   "conferenceProperties": {
-    "allowedConferenceSolutionTypes": [
-      "hangoutsMeet"
-    ]
+    "allowedConferenceSolutionTypes": ["hangoutsMeet"]
   },
   "defaultReminders": [],
   "etag": "\"1680597534253000\"",

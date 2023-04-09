@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
-    "incremental": true,                              
-    "tsBuildInfoFile": "./.tsbuildinfo" ,
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo",
     "target": "es2016",
     "module": "commonjs",
-    "outDir": "./dist", 
+    "outDir": "./dist",
     "esModuleInterop": true,
-    "strict": true,
+    "strict": true
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

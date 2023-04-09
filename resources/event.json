@@ -1,0 +1,18 @@
+{
+  "kind": "calendar#event",
+  "etag": "\"3360179787164000\"",
+  "id": "_6d334d1l61248ba5611j6b9k64ok8b9p6kp3cba26133ec1h88q34e9p60",
+  "status": "confirmed",
+  "htmlLink": "https://www.google.com/calendar/event?eid=XzZkMzM0ZDFsNjEyNDhiYTU2MTFqNmI5azY0b2s4YjlwNmtwM2NiYTI2MTMzZWMxaDg4cTM0ZTlwNjAgY18xZmQyZjg1ZTA5OTBjOTE2Yjg2OTNjMDNmYWE0ZDlmNjgyOGQ5YzYyZmQ0YWRhMzFiODcwYTJjMWEyNGU1MDc4QGc",
+  "created": "2023-03-29T11:38:10.000Z",
+  "updated": "2023-03-29T11:38:10.498Z",
+  "summary": "Lozi 開発",
+  "creator": {},
+  "organizer": {},
+  "start": {},
+  "end": {},
+  "iCalUID": "3F2450DD-E0C3-411D-9526-B0F701B42990",
+  "sequence": 1,
+  "reminders": {},
+  "eventType": "default"
+}

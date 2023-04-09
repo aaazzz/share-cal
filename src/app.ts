@@ -16,7 +16,7 @@ import { google } from 'googleapis';
 
 const state = {
   userProfile: {},
-  calendars: {}
+  calendars: {},
 };
 
 declare global {
@@ -85,9 +85,15 @@ const createApp = (db: PrismaClient) => {
         done: any
       ) {
         const loggedInUser: LoggedInUser = profile._json;
+        console.log({ refreshToken });
         await db.user.upsert({
           where: { id: loggedInUser.sub },
-          update: {},
+          update: {
+            email: loggedInUser.email,
+            accessToken,
+            refreshToken,
+            name: loggedInUser.name,
+          },
           create: {
             id: loggedInUser.sub,
             email: loggedInUser.email,
@@ -109,6 +115,8 @@ const createApp = (db: PrismaClient) => {
   app.get(
     '/auth/google',
     passport.authenticate('google', {
+      accessType: 'offline',
+      prompt: 'consent',
       scope: [
         'profile',
         'email',
@@ -119,7 +127,9 @@ const createApp = (db: PrismaClient) => {
 
   app.get(
     '/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/error' }),
+    passport.authenticate('google', {
+      failureRedirect: '/error',
+    }),
     function (req, res) {
       // Successful authentication, redirect success.
       res.redirect('/success');
@@ -141,11 +151,12 @@ const createApp = (db: PrismaClient) => {
 
   app.get('/calendars', isAuthenticated, async (req, res) => {
     const user = await db.user.findUnique({
-      where: {id: req.user?.id}
+      where: { id: req.user?.id },
     });
-   const accessToken = user?.accessToken || '';
-   const calendars = google.calendar({ version: 'v3', auth: accessToken});
-   res.status(200).json({calendars});
+    const accessToken = user?.accessToken || '';
+    const gCal = google.calendar({ version: 'v3', auth: accessToken });
+    console.log(gCal.calendarList.list());
+    res.status(200).json({});
   });
   return app;
 };

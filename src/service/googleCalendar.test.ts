@@ -1,15 +1,31 @@
-import { OAuth2Client } from 'google-auth-library';
-// import { getCalendarList, getEventList } from './googleCalendar';
-import {GoogleCalendar} from './googleCalendar';
+import { GoogleCalendar } from './googleCalendar';
+import { PrismaClient } from '@prisma/client';
+const prisma = new PrismaClient();
 
-describe('get google calendar list', () => {
+describe('Google Calendar with Service Account', () => {
+  it('should have event array', async () => {
+
+    const googleCalendar = new GoogleCalendar();
+    const events = await googleCalendar.listEvents('akira@sango-tech.com');
+
+    expect(events[0]).toHaveProperty('iCalUID');
+  });
+});
+
+describe('Google Calendar with Refesh Token', () => {
   it('should have calendar array', async () => {
-    const rt =
-      '1//0eYmlJl7CVgwrCgYIARAAGA4SNwF-L9IrKuL9n5QcDje7PphexHitSh1xvCOqD9W0wzhaKTe5_Tdudh-0Sj6BopHXC11ODW0yQWg';
+    const user = await prisma.user.findUnique({
+      where: {
+        id: '114243865363109431680' 
+      }
+    });
+    if (!user) return;
 
-    const googleCalendar = new GoogleCalendar(rt);
-    const calendarList = await googleCalendar.listCalendars();
+    const refreshToken = user.refreshToken || '';
 
-    expect(calendarList[0]).toHaveProperty('accessRole');
+    const googleCalendar = new GoogleCalendar(refreshToken);
+    const calendars = await googleCalendar.listCalendars();
+    
+    expect(calendars[0]).toHaveProperty('accessRole');
   });
 });

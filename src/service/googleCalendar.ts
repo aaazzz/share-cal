@@ -1,5 +1,6 @@
 import { calendar_v3, google } from 'googleapis';
 import { OAuth2Client } from 'google-auth-library';
+import key from './credentials.json';
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -7,16 +8,32 @@ const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID || '';
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET || '';
 
 class GoogleCalendar {
+
+  private readonly authClient: any;
   private readonly calendarApi: any;
 
-  constructor(refreshToken: string) {
-    const authClient = new OAuth2Client(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET);
-    authClient.setCredentials({ refresh_token: refreshToken });
-    this.calendarApi = google.calendar({ version: 'v3', auth: authClient });
+  // ２種類の認証方法を用意
+  // refreshTokenを利用するOAuth2.0。タイムアウトする
+  // service accountを利用する。タイムアウトしない
+  constructor(refreshToken?: string) {
+    if (refreshToken !== undefined) {
+      this.authClient = new OAuth2Client(GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET);
+      this.authClient.setCredentials({ refresh_token: refreshToken });
+    } else {
+      this.authClient = new google.auth.JWT(
+        key.client_email,
+        '',
+        key.private_key,
+        ['https://www.googleapis.com/auth/calendar'],
+        ''
+      );
+    }
+    this.calendarApi = google.calendar({ version: 'v3', auth: this.authClient });
   }
 
   async listCalendars() {
     const response = await this.calendarApi.calendarList.list();
+
     return response.data.items;
   }
 
@@ -31,22 +48,6 @@ class GoogleCalendar {
 
     return response.data.items;
   }
-
 }
-
-const getCalendarList = async (oAuth2Client: OAuth2Client) => {
-  const gCal = google.calendar({ version: 'v3', auth: oAuth2Client });
-  const { data } = await gCal.calendarList.list();
-  return data;
-};
-
-const getEventList = async (
-  oAuth2Client: OAuth2Client,
-  calendarId: string
-): Promise<calendar_v3.Schema$Events> => {
-  const gCal = google.calendar({ version: 'v3', auth: oAuth2Client });
-  const { data } = await gCal.events.list({ calendarId });
-  return data;
-};
 
 export { GoogleCalendar };
